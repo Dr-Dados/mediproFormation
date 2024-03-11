@@ -1,0 +1,13 @@
+/* src/styles/tailwind.css */
+@import "tailwindcss/base";
+@import "tailwindcss/components";
+@import "tailwindcss/utilities";
+
+@layer components {
+  .navlist {
+    @apply flex flex-col gap-2 list-none p-0 m-0;
+  }
+  .navlink {
+    @apply flex items-center gap-3 text-gray-900 text-base font-semibold p-3 transition-all duration-300 active:text-gray-800 active:rounded-sm active:font-semibold active:ml-2 hover:text-gray-800 hover:rounded-sm hover:font-semibold hover:ml-2;
+  }
+}
