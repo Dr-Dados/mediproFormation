@@ -1,11 +1,10 @@
 import { Link } from "react-router-dom";
 import CourseItem from "./CourseItem";
 
-import { useCourses } from "../context/CourseProvider";
+import { useCourses } from "../../context/CourseProvider";
 
 function Courses() {
   const { courses } = useCourses();
-  console.log(useCourses())
   return (
     <div>
       <h2 className="text-xl font-semibold mb-5">Formations</h2>

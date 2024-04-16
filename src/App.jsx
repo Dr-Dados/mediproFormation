@@ -1,11 +1,11 @@
 import { RouterProvider, createBrowserRouter } from "react-router-dom";
 import AppLayout from "./pages/AppLayout";
 import User from "./pages/User";
-import Courses from "./courses/Courses";
-import Summary from "./courses/Summary";
+import Courses from "./features/courses/Courses";
+import Summary from "./features/courses/Summary";
 import { courses, quizes } from "/data/FData";
-import Quizes from "./courses/Quizes";
-import QuizDetail from "./courses/QuizDetail";
+import Quizes from "./features/quiz/Quizes";
+import QuizDetail from "./features/quiz/QuizDetail";
 import Login from "./pages/Login";
 
 const router = createBrowserRouter([

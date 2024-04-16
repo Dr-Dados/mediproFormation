@@ -1,5 +1,5 @@
 import { useParams } from "react-router-dom";
-import { courses } from "../../data/FData";
+import { courses } from "../../../data/FData";
 import CourseDetail from "./CourseDetail";
 import {
   Button,
@@ -9,7 +9,7 @@ import {
   List,
   ListItem,
 } from "@material-tailwind/react";
-import { useLocalStorageState } from "../utils/useLocalStorageState";
+import { useLocalStorageState } from "../../utils/useLocalStorageState";
 courses;
 function Summary() {
   const [index, setIndex] = useLocalStorageState(
@@ -20,7 +20,6 @@ function Summary() {
     },
     "indexes"
   );
-console.log(index)
   const { id } = useParams();
   const course = courses.find((course) => course.id === Number(id));
   const sections = course.sections;
