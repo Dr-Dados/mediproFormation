@@ -1,12 +1,24 @@
 import { useState } from "react";
 import { useParams } from "react-router-dom";
+import { useLocalStorageState } from "../../utils/useLocalStorageState";
 
 function QuizDetail({ quizes }) {
-  const [answers, setAnswers] = useState([]);
+  // Storing data in the local browser storage
+  const [quizDetails, setQuizDetails] = useLocalStorageState(
+    {
+      questionIndex: 0,
+      quizAnswers: [],
+      state: "standby",
+    },
+    "quizDetail"
+  );
+  const { quizAnswers, questionIndex, state } = quizDetails;
+
+  // Finding the right quiz
   const id = useParams();
   const quiz = quizes.find((quiz) => quiz.title != id);
-  const [index, setIndex] = useState(0);
-  const userInput = answers[index] ? answers[index].answer : "";
+  const [index, setIndex] = useState(questionIndex);
+  const userInput = quizAnswers[index] ? quizAnswers[index].answer : "";
   const [userAnswer, setUserAnswer] = useState(userInput);
 
   function nextHandler(e) {
@@ -16,29 +28,43 @@ function QuizDetail({ quizes }) {
       question: quiz.questions[index].question,
       answer: userAnswer,
     };
-    setAnswers((prevArray) => {
-      // Check if the object is already in the array
-      const index = prevArray.findIndex((obj) => obj.id === answer.id);
-
-      if (index !== -1) {
-        // If found, replace the object at the index
-        const newArray = [...prevArray];
-        newArray[index] = answer;
-        return newArray;
+    setQuizDetails((prevObj) => {
+      if (prevObj.quizAnswers.length > 0) {
+        const index = prevObj.quizAnswers.findIndex(
+          (obj) => obj.id === answer.id
+        );
+        if (index !== -1) {
+          // If found, replace the object at the index
+          const newArray = [...prevObj.quizAnswers];
+          newArray[index] = answer;
+          return {
+            ...prevObj,
+            questionIndex: prevObj.questionIndex + 1,
+            quizAnswers: newArray,
+          };
+        } else {
+          return {
+            ...prevObj,
+            questionIndex: prevObj.questionIndex + 1,
+            quizAnswers: [...prevObj.quizAnswers, answer],
+          };
+        }
       } else {
-        // If not found, add the new object to the array
-        return [...prevArray, answer];
+        return {
+          ...prevObj,
+          questionIndex: prevObj.questionIndex + 1,
+          quizAnswers: [...prevObj.quizAnswers, answer],
+        };
       }
     });
     setUserAnswer("");
     setIndex((index) => index + 1);
   }
-  console.log(answers);
 
   function previousHandler(e) {
     e.preventDefault();
     setIndex((index) => index - 1);
-    setUserAnswer(answers[index - 1].answer);
+    setUserAnswer(quizAnswers[index - 1].answer);
     if (index == 0) return;
   }
   const nbQuestions = quiz.questions.length;
