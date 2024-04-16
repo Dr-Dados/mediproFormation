@@ -1,6 +1,7 @@
 import { Link } from "react-router-dom";
 import QuizItem from "./QuizItem";
 function Quizes({ quizes }) {
+
   return (
     <div>
       <h2 className="text-xl font-semibold mb-5">Quiz</h2>

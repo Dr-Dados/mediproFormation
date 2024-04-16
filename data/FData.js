@@ -14,44 +14,69 @@ const courses = [
             title: "I-Anatomie",
             content: `
       
-      <p>
-        Les voies respiratoires sont l'ensemble des conduits qui permettent le
-        passage d'air du milieu extérieur jusqu'aux poumons. On peut diviser les
-        voies respiratoires en :
-      </p>
-      <ul>
-        <li>
-          Voies respiratoires hautes : cavité nasale, la bouche, le pharynx et
-          le larynx
-        </li>
-        <li>
-          Voies respiratoires basses : la trachée, les bronches souches droite
-          et gauche, les bronches lobaires et les bronchioles
-        </li>
-        <li>
-          Les alvéoles pulmonaires représentent l'espace d'échange avec le sang.
-        </li>
-      </ul>
+       <div class="sectionWithImg">
+        <div class="firstCol">
+          <div class="flex items-center h-full">
+            <div>
+                <p className="text-gray-300">
+                  Les voies respiratoires sont l'ensemble des conduits qui
+                  permettent le passage d'air du milieu extérieur jusqu'aux
+                  poumons. On peut diviser les voies respiratoires en :
+                </p>
+                <ul className="listStyle">
+                  <li>
+                    Voies respiratoires hautes : cavité nasale, la bouche, le
+                    pharynx et le larynx
+                  </li>
+                  <li>
+                    Voies respiratoires basses : la trachée, les bronches
+                    souches droite et gauche, les bronches lobaires et les
+                    bronchioles
+                  </li>
+                  <li>
+                    Les alvéoles pulmonaires représentent l'espace d'échange
+                    avec le sang.
+                  </li>
+                </ul>
+            </div>
+          </div>
+        </div>
 
-      <h3>- Les fosses nasales :</h3>
-      <p>
-        Les fosses nasales sont 2 cavités aériennes, allongées d'avant en
-        arrière, séparées par une cloison. C'est la partie la plus supérieure
-        des voies respiratoires, elle constitue donc une des premières barrières
-        de défense contre les agents agresseurs.
-      </p>
-      <p>
-        Les fosses nasales sont tapissées par une muqueuse de type respiratoire.
-        A la partie supérieure des fosses nasales se trouve la zone de
-        l'olfaction. Elles ont 3 rôles essentiels : respiratoire, immunitaire et
-        olfactif.
-      </p>
-      <ul>
-        <li>Filtrent les impuretés et agents pathogènes</li>
-        <li>Humidifient l'air</li>
-        <li>Réchauffent l'air</li>
-        <li>Responsables de l'odorat</li>
-      </ul>
+        <div class="col-span-1">
+          <div class="flex justify-center">
+            <img
+              src="/photo1.jpeg"
+              alt="Your Image"
+              class="max-w-full h-auto"
+            />
+          </div>
+        </div>
+      </div>
+      <div className="courseSection">
+        <div className=""></div>
+      </div>
+
+      <div className="courseSection">
+        <h2 className="text-xl py-3">Les fosses nasales :</h2>
+        <p>
+          Les fosses nasales sont 2 cavités aériennes, allongées d'avant en
+          arrière, séparées par une cloison. C'est la partie la plus supérieure
+          des voies respiratoires, elle constitue donc une des premières
+          barrières de défense contre les agents agresseurs.
+        </p>
+        <p>
+          Les fosses nasales sont tapissées par une muqueuse de type
+          respiratoire. A la partie supérieure des fosses nasales se trouve la
+          zone de l'olfaction. Elles ont 3 rôles essentiels : respiratoire,
+          immunitaire et olfactif.
+        </p>
+        <ul className="listStyle">
+          <li>Filtrent les impuretés et agents pathogènes</li>
+          <li>Humidifient l'air</li>
+          <li>Réchauffent l'air</li>
+          <li>Responsables de l'odorat</li>
+        </ul>
+      </div>
       <h3>- Le pharynx :</h3>
       <p>
         Fait partie des voies aériennes supérieures et se divise en 3 parties :
@@ -76,7 +101,9 @@ const courses = [
         </li>
         <li>Sphénoïdaux : au fond du nez</li>
       </ul>
-      <p><strong>Rôle des sinus :</strong></p>
+      <p>
+        <strong>Rôle des sinus :</strong>
+      </p>
 
       <ul>
         <li>
@@ -107,8 +134,6 @@ const courses = [
           explique la plus grande fréquence des infections rhinosinusiennes.
         </li>
       </ul>
-  </body>
-</html>
 `,
           },
           {

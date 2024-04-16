@@ -37,7 +37,7 @@ function Menu() {
           Profil
         </NavLink>
 
-        <NavLink to="/" className="navlink">
+        <NavLink to="login" className="navlink">
           <IoLogOut />
           Se déconnecter
         </NavLink>
