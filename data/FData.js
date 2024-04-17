@@ -14,11 +14,11 @@ const courses = [
             title: "I-Anatomie",
             content: `
       
-       <div class="sectionWithImg">
-        <div class="firstCol">
-          <div class="flex items-center h-full">
-            <div>
-                <p className="text-gray-300">
+       <div>
+        <div>
+          <div>
+            <section className="text-section">
+                <p>
                   Les voies respiratoires sont l'ensemble des conduits qui
                   permettent le passage d'air du milieu extérieur jusqu'aux
                   poumons. On peut diviser les voies respiratoires en :
@@ -38,7 +38,7 @@ const courses = [
                     avec le sang.
                   </li>
                 </ul>
-            </div>
+            </section>
           </div>
         </div>
 

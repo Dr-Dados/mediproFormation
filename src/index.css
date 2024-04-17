@@ -25,3 +25,16 @@
     @apply my-1 space-y-1  list-disc list-inside;
   }
 }
+
+section {
+  margin: 10px 0;
+}
+
+ul {
+  margin: 0 0 15px 15px;
+  list-style-type: disc;
+}
+
+ul li {
+  margin: 5px 0;
+}

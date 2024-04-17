@@ -11,13 +11,15 @@ function CourseDetail({ index, course, setState }) {
         {course.title} -{" "}
         {course.sections[sectionIndex].chapters[chapterIndex].title}
       </h2>
+
       <div
+        className="prose prose-xl max-w-none" // Ensure you have the necessary Tailwind CSS classes available
         dangerouslySetInnerHTML={{
           __html: course.sections[sectionIndex].chapters[chapterIndex].content,
         }}
       />
       <Button
-        className="my-5"
+        className="mt-5 my-10"
         color="blue"
         onClick={() => {
           setState({ sectionIndex: 0, chapterIndex: 0, state: "standby" });

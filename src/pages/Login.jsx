@@ -2,8 +2,9 @@ import { useState } from "react";
 
 import { Typography, Input, Button } from "@material-tailwind/react";
 import { EyeSlashIcon, EyeIcon } from "@heroicons/react/24/solid";
-import { Navigate, useNavigate } from "react-router-dom";
+import { redirect, useNavigate } from "react-router-dom";
 import { Alert } from "@material-tailwind/react";
+import { useLocalStorageState } from "../utils/useLocalStorageState";
 
 function Icon() {
   return (
@@ -24,6 +25,16 @@ function Icon() {
   );
 }
 export function Basic() {
+  const [user, setUser] = useLocalStorageState(
+    {
+      id: null,
+      firstName: "",
+      lastName: "",
+      email: "",
+      islogged: false,
+    },
+    "user"
+  );
   const [passwordShown, setPasswordShown] = useState(false);
   const [email, setEmail] = useState("");
   const [falseAuth, setFalseAuth] = useState(false);
@@ -31,8 +42,19 @@ export function Basic() {
   const togglePasswordVisiblity = () => setPasswordShown((cur) => !cur);
   const navigate = useNavigate();
   function loginHandler() {
-    if (email == "test@gmail.com" && password == "123456") navigate("/");
-    else setFalseAuth(true);
+    if (email == "test" && password == "123456") {
+      setUser((user) => ({
+        ...user,
+        id: 1,
+        firstName: "Adnane",
+        lastName: "Bachchar",
+        email,
+        islogged: true,
+      }));
+    } else setFalseAuth(true);
+  }
+  if(user.islogged){
+          navigate("/");
   }
   return (
     <section className="grid text-center h-screen items-center p-8">
@@ -132,7 +154,7 @@ export function Basic() {
         </form>
       </div>
       <Alert
-      className="absolute top-0 m-0 "
+        className="absolute top-0 m-0 "
         open={falseAuth}
         icon={<Icon />}
         action={
