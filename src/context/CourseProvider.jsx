@@ -1,5 +1,5 @@
 import { createContext, useContext, useEffect, useState } from "react";
-import { getCourses, getSections } from "../services/apicourses";
+import { getCourses } from "../services/apicourses";
 
 const CourseContext = createContext();
 
@@ -12,11 +12,7 @@ function CourseProvider({ children }) {
     getCourses().then((data) => setCourses(data));
     setIsloading(false);
   }, []);
-  useEffect(function () {
-    setIsloading(true);
-    getSections().then((data) => setSections(data));
-    setIsloading(false);
-  }, []);
+
   return (
     <CourseContext.Provider
       value={{

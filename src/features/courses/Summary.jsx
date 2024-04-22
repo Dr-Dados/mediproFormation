@@ -10,6 +10,7 @@ import {
   ListItem,
 } from "@material-tailwind/react";
 import { useLocalStorageState } from "../../utils/useLocalStorageState";
+import { useEffect } from "react";
 courses;
 function Summary() {
   const [index, setIndex] = useLocalStorageState(
@@ -20,6 +21,13 @@ function Summary() {
     },
     "indexes"
   );
+  useEffect(function () {
+    setIndex({
+      sectionIndex: 0,
+      chapterIndex: 0,
+      state: "standby",
+    });
+  }, []);
   const { id } = useParams();
   const course = courses.find((course) => course.id === Number(id));
   const sections = course.sections;
@@ -56,26 +64,10 @@ function Summary() {
                   </List>
                 </CardBody>
               </Card>
-              // <div key={section.id}>
-              //   <h4 className="text-xl font-semibold text-gray-800">
-              //
-              //   </h4>
-
-              // </div>
+             
             );
           })}
-          <Button
-            className="my-3"
-            color="blue"
-            onClick={() => {
-              setIndex({
-                ...index,
-                state: "start",
-              });
-            }}
-          >
-            Commencer
-          </Button>
+        
         </div>
       )}
       {index.state === "start" && (

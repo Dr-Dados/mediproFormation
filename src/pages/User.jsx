@@ -8,6 +8,10 @@ import { Input, Typography, Select, Option } from "@material-tailwind/react";
 // @heroicons/react
 
 function User() {
+  const user = JSON.parse(localStorage.getItem("user"));
+  const { firstName, lastName, email } = user;
+  const [fName, setFName] = useState(firstName);
+  const [LName, setLName] = useState(lastName);
   return (
     <section className="px-8 py-20 container mx-auto">
       <Typography variant="h5" color="blue-gray">
@@ -28,11 +32,12 @@ function User() {
             </Typography>
             <Input
               size="lg"
-              placeholder="Emma"
               labelProps={{
                 className: "hidden",
               }}
               className="w-full placeholder:opacity-100 focus:border-t-primary border-t-blue-gray-200"
+              value={fName}
+              onChange={(e) => setFName(e.target.value)}
             />
           </div>
           <div className="w-full">
@@ -45,7 +50,8 @@ function User() {
             </Typography>
             <Input
               size="lg"
-              placeholder="Roberts"
+              value={LName}
+              onChange={(e) => setLName(e.target.value)}
               labelProps={{
                 className: "hidden",
               }}
@@ -89,23 +95,7 @@ function User() {
               labelProps={{
                 className: "hidden",
               }}
-              className="w-full placeholder:opacity-100 focus:border-t-primary border-t-blue-gray-200"
-            />
-          </div>
-          <div className="w-full">
-            <Typography
-              variant="small"
-              color="blue-gray"
-              className="mb-2 font-medium"
-            >
-              Confirm Email
-            </Typography>
-            <Input
-              size="lg"
-              placeholder="emma@mail.com"
-              labelProps={{
-                className: "hidden",
-              }}
+              disabled
               className="w-full placeholder:opacity-100 focus:border-t-primary border-t-blue-gray-200"
             />
           </div>
@@ -121,7 +111,8 @@ function User() {
             </Typography>
             <Input
               size="lg"
-              placeholder="Florida, USA"
+              placeholder="Casablanca, MOROCCO"
+              disabled
               labelProps={{
                 className: "hidden",
               }}
@@ -138,33 +129,14 @@ function User() {
             </Typography>
             <Input
               size="lg"
-              placeholder="+123 0123 456 789"
+              placeholder="+212 123 456 789"
               labelProps={{
                 className: "hidden",
               }}
+              disabled
               className="w-full placeholder:opacity-100 focus:border-t-primary border-t-blue-gray-200"
             />
           </div>
-        </div>
-        <div className="flex flex-col items-end gap-4 md:flex-row">
-          <div className="w-full">
-            <Typography
-              variant="small"
-              color="blue-gray"
-              className="mb-2 font-medium"
-            >
-              Phone number
-            </Typography>
-            <Input
-              size="lg"
-              placeholder="Language"
-              labelProps={{
-                className: "hidden",
-              }}
-              className="w-full placeholder:opacity-100 focus:border-t-primary border-t-blue-gray-200"
-            />
-          </div>
-
         </div>
       </div>
     </section>
