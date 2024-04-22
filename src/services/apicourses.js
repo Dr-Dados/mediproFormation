@@ -9,11 +9,4 @@ export async function getCourses() {
   return data;
 }
 
-export async function getSections() {
-  let { data: sections, error } = await supabase.from("sections").select("*");
 
-  if (error) {
-    console.log(error);
-  }
-  return sections;
-}

@@ -13,6 +13,9 @@ const Sidebar = () => {
 };
 
 function Menu() {
+  function logoutHandler(){
+    
+  }
   return (
     <nav>
       <ul className="navlist">
@@ -37,7 +40,7 @@ function Menu() {
           Profil
         </NavLink>
 
-        <NavLink to="login" className="navlink">
+        <NavLink onClick={logoutHandler} className="navlink">
           <IoLogOut />
           Se déconnecter
         </NavLink>
